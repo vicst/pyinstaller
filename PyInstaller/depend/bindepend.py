@@ -876,9 +876,7 @@ def get_python_library_path():
     # Work around for python venv having VERSION.dll rather than pythonXY.dll
     if is_win and 'VERSION.dll' in dlls:
         pydll = 'python%d%d.dll' % sys.version_info[:2]
-        if pydll in PYDYLIB_NAMES:
-            filename = getfullnameof(pydll)
-            return filename
+        return getfullnameof(pydll)
 
     # Applies only to non Windows platforms.
 
